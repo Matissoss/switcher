@@ -75,6 +75,9 @@ public class CameraFollow : MonoBehaviour
         }
         switch (PlayerPrefs.GetInt("Color")) 
         {
+            case 0:
+                mainCamera.backgroundColor = Color.gray;
+                break;
             case 1:
                 mainCamera.backgroundColor = Color.white;
                 break;

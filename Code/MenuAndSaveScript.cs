@@ -26,6 +26,9 @@ public class MenuAndSaveScript : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+    public void Quit(){
+        Application.Quit();
+    }
     public void Save() 
     {
         //After level is done

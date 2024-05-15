@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     private Animator playerAnimator;
     private bool canJump;
     private Colors color;
+    private float timeScale;
     private enum Colors
     {
         red,
@@ -57,9 +58,18 @@ public class PlayerScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
-            playerRb.AddForce(Vector2.up * jumpForce);
+            playerRb.AddForce((Vector2.up * jumpForce) * timeScale);
             src.PlayOneShot(jump, PlayerPrefs.GetFloat("SFXVolume"));
         }
-        transform.position += playerVector * Time.deltaTime * speed;
+        transform.position += (playerVector * Time.deltaTime * speed) * timeScale;
+
+        if(PlayerPrefs.GetInt("Color") == 0)
+        {
+            timeScale = 0.1f;
+        }
+        else if(PlayerPrefs.GetInt("Color") != 0)
+        {
+            timeScale = 1f;
+        }
     }
 }

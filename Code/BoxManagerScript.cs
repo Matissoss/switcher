@@ -14,6 +14,13 @@ public class BoxManagerScript : MonoBehaviour
     }
     private void Update()
     {
+        if (PlayerPrefs.GetInt("Color") == 0)
+        {
+            foreach (GameObject box in boxesAndObstacles)
+            {
+                box.gameObject.SetActive(true);
+            }
+        }
         if(PlayerPrefs.GetInt("Color") == 1)
         {
             foreach(GameObject box in boxesAndObstacles)
